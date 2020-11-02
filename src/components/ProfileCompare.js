@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Row, Col, Card } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -81,22 +83,30 @@ function ProfileCompare(){
                         <Col sm="5">
                             <img src={user1.avatar} class="profile-image" />
                         </Col>
-                        <Col sm="7">
-                            <p class="profile-name">{user1.name}</p>
+                        <Col sm="87">
+                        <p className="profile-header"><span className="profile-name">{user1.name}</span><br/>
+                        <a class="profile-link" href={"Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                        </Col>
+                    </Row>
+                    <Row className="profile-follow">
+                        <Col sm="6">
+                            <div  className="follow-box">
+                                <p>
+                                    Followers: <br/>
+                                    <span className="follow-number">{user1.followers}</span>
+                                </p>
+                            </div>
+                        </Col>
+                        <Col sm="6">
+                            <div  className="follow-box">
+                                <p>
+                                    Following: <br/>
+                                    <span className="follow-number">{user1.following}</span>  
+                                </p>
+                            </div>
                         </Col>
                     </Row>
                 </div>
-                {/* <Card className="Github-card" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={user1.avatar} />
-                    <Card.Body>
-                        <Card.Title>{user1.userName}</Card.Title>
-                        <Card.Text>
-                        Repos: {user1.repos}<br />
-                        Followers: {user1.followers}<br />
-                        Following: {user1.following}
-                        </Card.Text>
-                    </Card.Body>
-                </Card> */}
                 </Col>
                 <Col className="Card">
                 <div className="Github-card">
@@ -105,8 +115,27 @@ function ProfileCompare(){
                         <Col sm="5">
                             <img src={user2.avatar} class="profile-image" />
                         </Col>
-                        <Col sm="7">
-                            <p class="profile-name">{user2.name}</p>
+                        <Col sm="87">
+                        <p className="profile-header"><span className="profile-name">{user2.name}</span><br/>
+                        <a class="profile-link" href={"Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                        </Col>
+                    </Row>
+                    <Row className="profile-follow">
+                        <Col sm="6">
+                            <div  className="follow-box">
+                                <p>
+                                    Followers: <br/>
+                                    <span className="follow-number">{user2.followers}</span>
+                                </p>
+                            </div>
+                        </Col>
+                        <Col sm="6">
+                            <div  className="follow-box">
+                                <p>
+                                    Following: <br/>
+                                    <span className="follow-number">{user2.following}</span>  
+                                </p>
+                            </div>
                         </Col>
                     </Row>
                 </div>
