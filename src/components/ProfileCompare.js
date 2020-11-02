@@ -21,7 +21,8 @@ function ProfileCompare(){
       const [user2, setSecondUser] = useState(GithubUser);
       const [firstUserInput, setFirstUserInput] = useState('');
       const [secondUserInput, setSecondUserInput] = useState('');
-      const [error, setError] = useState(null);
+      const [user1Error, setErrorUser1] = useState(null);
+      const [user2Error, setErrorUser2] = useState(null);
     
       const handleUserProfileInput = e => {
         if(e.target.id == "user1"){
@@ -40,10 +41,20 @@ function ProfileCompare(){
             fetch(`https://api.github.com/users/${secondUserInput}`).then(user2 => user2.json()),
             fetch(`https://api.github.com/users/${secondUserInput}/repos`)
           ]).then((data) => {
-              console.log(data);
-              setUserData(true);
-              setData(data[0], "user1");
-              setData(data[2], "user2");
+                console.log(data);
+                setUserData(true);
+                if(data[0].message){
+                    setErrorUser1(data[0].message);
+                }else{
+                    setErrorUser1(null);
+                    setData(data[0], "user1");
+                }
+                if(data[2].message){
+                    setErrorUser2(data[2].message);
+                }else{
+                    setErrorUser2(null);
+                    setData(data[2], "user2");
+                }              
           });
       }
     
@@ -78,14 +89,16 @@ function ProfileCompare(){
             <Row>
                 <Col className="Card">
                 <div className="Github-card">
-                    {/* SETUP IF STATEMENT */}
-                    <Row>
+                    { user1Error ? (<div className="error-text">{user1Error}</div>) : 
+                    (
+                        <div>
+                            <Row>
                         <Col sm="5">
-                            <img src={user1.avatar} class="profile-image" />
+                            <img src={user1.avatar} className="profile-image" />
                         </Col>
                         <Col sm="87">
                         <p className="profile-header"><span className="profile-name">{user1.name}</span><br/>
-                        <a class="profile-link" href={"Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                        <a className="profile-link" href={"Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
                         </Col>
                     </Row>
                     <Row className="profile-follow">
@@ -110,18 +123,23 @@ function ProfileCompare(){
                             </div>
                         </Col>
                     </Row>
+                        </div>
+                    )
+                    } 
                 </div>
                 </Col>
                 <Col className="Card">
                 <div className="Github-card">
-                    {/* SETUP IF STATEMENT */}
+                    { user2Error ? (<div className="error-text">{user2Error}</div>) : 
+                    (
+                    <div>
                     <Row>
                         <Col sm="5">
-                            <img src={user2.avatar} class="profile-image" />
+                            <img src={user2.avatar} className="profile-image" />
                         </Col>
                         <Col sm="87">
                         <p className="profile-header"><span className="profile-name">{user2.name}</span><br/>
-                        <a class="profile-link" href={"Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                        <a className="profile-link" href={"Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
                         </Col>
                     </Row>
                     <Row className="profile-follow">
@@ -146,18 +164,9 @@ function ProfileCompare(){
                             </div>
                         </Col>
                     </Row>
+                    </div>
+                    )}
                 </div>
-                {/* <Card className="Github-card" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={user2.avatar} />
-                    <Card.Body>
-                        <Card.Title>{user2.userName}</Card.Title>
-                        <Card.Text>
-                        Repos: {user2.repos}<br />
-                        Followers: {user2.followers}<br />
-                        Following: {user2.following}
-                        </Card.Text>
-                    </Card.Body>
-                    </Card> */}
                 </Col>
             </Row>
           </div>
