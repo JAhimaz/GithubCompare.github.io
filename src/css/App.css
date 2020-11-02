@@ -1,0 +1,36 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* font-size: calc(10px + 2vmin); */
+}
+
+.container {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+::placeholder{
+  color:  #9a9b9c !important;
+}
+
+.input-fields {
+  background-color: #282c34 !important; 
+  color: white !important;
+  font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  border: 1px solid  #9a9b9c !important;
+}
+
+.header-title {
+  color: #9a9b9c;
+  font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.label{
+  color: #9a9b9c;
+  font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
