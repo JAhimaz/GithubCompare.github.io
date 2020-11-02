@@ -1,3 +1,3 @@
 # Github Profile Compare
 
-JAhimaz.github.io/github-compare
+[Check it out here!](http://JAhimaz.github.io/github-compare)
