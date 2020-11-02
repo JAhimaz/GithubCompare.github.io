@@ -77,6 +77,14 @@ function ProfileCompare(){
                 <Col className="Card">
                 <div className="Github-card">
                     {/* SETUP IF STATEMENT */}
+                    <Row>
+                        <Col sm="5">
+                            <img src={user1.avatar} class="profile-image" />
+                        </Col>
+                        <Col sm="7">
+                            <p class="profile-name">{user1.name}</p>
+                        </Col>
+                    </Row>
                 </div>
                 {/* <Card className="Github-card" style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={user1.avatar} />
@@ -93,7 +101,14 @@ function ProfileCompare(){
                 <Col className="Card">
                 <div className="Github-card">
                     {/* SETUP IF STATEMENT */}
-                    
+                    <Row>
+                        <Col sm="5">
+                            <img src={user2.avatar} class="profile-image" />
+                        </Col>
+                        <Col sm="7">
+                            <p class="profile-name">{user2.name}</p>
+                        </Col>
+                    </Row>
                 </div>
                 {/* <Card className="Github-card" style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={user2.avatar} />

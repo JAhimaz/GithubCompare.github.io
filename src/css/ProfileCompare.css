@@ -10,7 +10,24 @@
 box-shadow: 0px 18px 18px -7px rgba(0,0,0,0.36);
 }
 
-.Card {
+.profile-image{
+    border-radius: 50%;
+    height: 150px;
     margin-top: 20px;
+    margin-left: 25px;
+    width: auto;
+}
+
+.profile-name{
+    text-align: left;
+    font-size: 18px;
+    color: white !important;
+    white-space: nowrap;
+    padding-top: 25px;
+    font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.Card {
+    margin-top: 2px;
     height: 500px;
 }
