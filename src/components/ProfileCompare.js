@@ -37,9 +37,9 @@ function ProfileCompare(){
       const handleSearchSubmit = () => {
           Promise.all([
             fetch(`https://api.github.com/users/${firstUserInput}`).then(user1 => user1.json()),
-            fetch(`https://api.github.com/users/${firstUserInput}/repos`),
-            fetch(`https://api.github.com/users/${secondUserInput}`).then(user2 => user2.json()),
-            fetch(`https://api.github.com/users/${secondUserInput}/repos`)
+            // fetch(`https://api.github.com/users/${firstUserInput}/repos`),
+            fetch(`https://api.github.com/users/${secondUserInput}`).then(user2 => user2.json())
+            // fetch(`https://api.github.com/users/${secondUserInput}/repos`)
           ]).then((data) => {
                 setUserData(true);
                 if(data[0].message){
@@ -48,11 +48,11 @@ function ProfileCompare(){
                     setErrorUser1(null);
                     setData(data[0], "user1");
                 }
-                if(data[2].message){
-                    setErrorUser2(data[2].message);
+                if(data[1].message){
+                    setErrorUser2(data[1].message);
                 }else{
                     setErrorUser2(null);
-                    setData(data[2], "user2");
+                    setData(data[1], "user2");
                 }              
           });
       }
@@ -100,7 +100,7 @@ function ProfileCompare(){
                             </Col>
                             <Col sm="87">
                             <p className="profile-header"><span className="profile-name">{user1.name}</span><br/>
-                            <a className="profile-link" href={"Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                            <a className="profile-link" href={"https://Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
                             </Col>
                         </Row>
                         <Row className="profile-follow">
@@ -141,7 +141,7 @@ function ProfileCompare(){
                             </Col>
                             <Col sm="87">
                             <p className="profile-header"><span className="profile-name">{user2.name}</span><br/>
-                            <a className="profile-link" href={"Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                            <a className="profile-link" href={"https://Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
                             </Col>
                         </Row>
                         <Row className="profile-follow">
