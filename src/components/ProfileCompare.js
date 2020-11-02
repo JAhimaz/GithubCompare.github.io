@@ -41,7 +41,6 @@ function ProfileCompare(){
             fetch(`https://api.github.com/users/${secondUserInput}`).then(user2 => user2.json()),
             fetch(`https://api.github.com/users/${secondUserInput}/repos`)
           ]).then((data) => {
-                console.log(data);
                 setUserData(true);
                 if(data[0].message){
                     setErrorUser1(data[0].message);
@@ -86,89 +85,94 @@ function ProfileCompare(){
               </Button>
             </Form>
             </div>
-            <Row>
-                <Col className="Card">
-                <div className="Github-card">
-                    { user1Error ? (<div className="error-text">{user1Error}</div>) : 
-                    (
-                        <div>
-                            <Row>
-                        <Col sm="5">
-                            <img src={user1.avatar} className="profile-image" />
-                        </Col>
-                        <Col sm="87">
-                        <p className="profile-header"><span className="profile-name">{user1.name}</span><br/>
-                        <a className="profile-link" href={"Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
-                        </Col>
-                    </Row>
-                    <Row className="profile-follow">
-                        <Col sm="6">
-                            <div  className="follow-box">
-                                <p>
-                                    Followers: <br/>
-                                    {user1.followers > user2.followers && <span className="follow-number-greater">{user1.followers}</span>}
-                                    {user2.followers > user1.followers && <span className="follow-number-lower">{user1.followers}</span>}
-                                    {user2.followers === user1.followers && <span className="follow-number-same">{user1.followers}</span>}
-                                </p>
+            { userData == false ? (<div className="error-text">Please Enter The Profiles and Click Compare</div>
+            ) : (
+            <div>
+                <Row>
+                    <Col className="Card">
+                    <div className="Github-card">
+                        { user1Error ? (<div className="error-text">{user1Error}</div>) : 
+                        (
+                            <div>
+                                <Row>
+                            <Col sm="5">
+                                <img src={user1.avatar} className="profile-image" />
+                            </Col>
+                            <Col sm="87">
+                            <p className="profile-header"><span className="profile-name">{user1.name}</span><br/>
+                            <a className="profile-link" href={"Github.com/" + user1.userName}>Github.com/{user1.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                            </Col>
+                        </Row>
+                        <Row className="profile-follow">
+                            <Col sm="6">
+                                <div  className="follow-box">
+                                    <p>
+                                        Followers: <br/>
+                                        {user1.followers > user2.followers && <span className="follow-number-greater">{user1.followers}</span>}
+                                        {user2.followers > user1.followers && <span className="follow-number-lower">{user1.followers}</span>}
+                                        {user2.followers === user1.followers && <span className="follow-number-same">{user1.followers}</span>}
+                                    </p>
+                                </div>
+                            </Col>
+                            <Col sm="6">
+                                <div  className="follow-box">
+                                    <p>
+                                        Following: <br/>
+                                        {user1.following > user2.following && <span className="follow-number-greater">{user1.following}</span>}
+                                        {user2.following > user1.following && <span className="follow-number-lower">{user1.following}</span>}
+                                        {user2.following === user1.following && <span className="follow-number-same">{user1.following}</span>}
+                                    </p>
+                                </div>
+                            </Col>
+                        </Row>
                             </div>
-                        </Col>
-                        <Col sm="6">
-                            <div  className="follow-box">
-                                <p>
-                                    Following: <br/>
-                                    {user1.following > user2.following && <span className="follow-number-greater">{user1.following}</span>}
-                                    {user2.following > user1.following && <span className="follow-number-lower">{user1.following}</span>}
-                                    {user2.following === user1.following && <span className="follow-number-same">{user1.following}</span>}
-                                </p>
-                            </div>
-                        </Col>
-                    </Row>
-                        </div>
-                    )
-                    } 
-                </div>
-                </Col>
-                <Col className="Card">
-                <div className="Github-card">
-                    { user2Error ? (<div className="error-text">{user2Error}</div>) : 
-                    (
-                    <div>
-                    <Row>
-                        <Col sm="5">
-                            <img src={user2.avatar} className="profile-image" />
-                        </Col>
-                        <Col sm="87">
-                        <p className="profile-header"><span className="profile-name">{user2.name}</span><br/>
-                        <a className="profile-link" href={"Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
-                        </Col>
-                    </Row>
-                    <Row className="profile-follow">
-                    <Col sm="6">
-                            <div  className="follow-box">
-                                <p>
-                                    Followers: <br/>
-                                    {user2.followers > user1.followers && <span className="follow-number-greater">{user2.followers}</span>}
-                                    {user1.followers > user2.followers && <span className="follow-number-lower">{user2.followers}</span>}
-                                    {user1.followers === user2.followers && <span className="follow-number-same">{user2.followers}</span>}
-                                </p>
-                            </div>
-                        </Col>
-                        <Col sm="6">
-                            <div  className="follow-box">
-                                <p>
-                                    Following: <br/>
-                                    {user2.following > user1.following && <span className="follow-number-greater">{user2.following}</span>}
-                                    {user1.following > user2.following && <span className="follow-number-lower">{user2.following}</span>}
-                                    {user1.following === user2.following && <span className="follow-number-same">{user2.following}</span>}
-                                </p>
-                            </div>
-                        </Col>
-                    </Row>
+                        )
+                        } 
                     </div>
-                    )}
-                </div>
-                </Col>
-            </Row>
+                    </Col>
+                    <Col className="Card">
+                    <div className="Github-card">
+                        { user2Error ? (<div className="error-text">{user2Error}</div>) : 
+                        (
+                        <div>
+                        <Row>
+                            <Col sm="5">
+                                <img src={user2.avatar} className="profile-image" />
+                            </Col>
+                            <Col sm="87">
+                            <p className="profile-header"><span className="profile-name">{user2.name}</span><br/>
+                            <a className="profile-link" href={"Github.com/" + user2.userName}>Github.com/{user2.userName} <FontAwesomeIcon icon={faExternalLinkAlt} /></a></p>
+                            </Col>
+                        </Row>
+                        <Row className="profile-follow">
+                        <Col sm="6">
+                                <div  className="follow-box">
+                                    <p>
+                                        Followers: <br/>
+                                        {user2.followers > user1.followers && <span className="follow-number-greater">{user2.followers}</span>}
+                                        {user1.followers > user2.followers && <span className="follow-number-lower">{user2.followers}</span>}
+                                        {user1.followers === user2.followers && <span className="follow-number-same">{user2.followers}</span>}
+                                    </p>
+                                </div>
+                            </Col>
+                            <Col sm="6">
+                                <div  className="follow-box">
+                                    <p>
+                                        Following: <br/>
+                                        {user2.following > user1.following && <span className="follow-number-greater">{user2.following}</span>}
+                                        {user1.following > user2.following && <span className="follow-number-lower">{user2.following}</span>}
+                                        {user1.following === user2.following && <span className="follow-number-same">{user2.following}</span>}
+                                    </p>
+                                </div>
+                            </Col>
+                        </Row>
+                        </div>
+                        )}
+                    </div>
+                    </Col>
+                </Row>
+            </div>
+            )}
           </div>
       );
 }
