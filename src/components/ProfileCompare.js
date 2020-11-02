@@ -93,7 +93,9 @@ function ProfileCompare(){
                             <div  className="follow-box">
                                 <p>
                                     Followers: <br/>
-                                    <span className="follow-number">{user1.followers}</span>
+                                    {user1.followers > user2.followers && <span className="follow-number-greater">{user1.followers}</span>}
+                                    {user2.followers > user1.followers && <span className="follow-number-lower">{user1.followers}</span>}
+                                    {user2.followers === user1.followers && <span className="follow-number-same">{user1.followers}</span>}
                                 </p>
                             </div>
                         </Col>
@@ -101,7 +103,9 @@ function ProfileCompare(){
                             <div  className="follow-box">
                                 <p>
                                     Following: <br/>
-                                    <span className="follow-number">{user1.following}</span>  
+                                    {user1.following > user2.following && <span className="follow-number-greater">{user1.following}</span>}
+                                    {user2.following > user1.following && <span className="follow-number-lower">{user1.following}</span>}
+                                    {user2.following === user1.following && <span className="follow-number-same">{user1.following}</span>}
                                 </p>
                             </div>
                         </Col>
@@ -121,11 +125,13 @@ function ProfileCompare(){
                         </Col>
                     </Row>
                     <Row className="profile-follow">
-                        <Col sm="6">
+                    <Col sm="6">
                             <div  className="follow-box">
                                 <p>
                                     Followers: <br/>
-                                    <span className="follow-number">{user2.followers}</span>
+                                    {user2.followers > user1.followers && <span className="follow-number-greater">{user2.followers}</span>}
+                                    {user1.followers > user2.followers && <span className="follow-number-lower">{user2.followers}</span>}
+                                    {user1.followers === user2.followers && <span className="follow-number-same">{user2.followers}</span>}
                                 </p>
                             </div>
                         </Col>
@@ -133,7 +139,9 @@ function ProfileCompare(){
                             <div  className="follow-box">
                                 <p>
                                     Following: <br/>
-                                    <span className="follow-number">{user2.following}</span>  
+                                    {user2.following > user1.following && <span className="follow-number-greater">{user2.following}</span>}
+                                    {user1.following > user2.following && <span className="follow-number-lower">{user2.following}</span>}
+                                    {user1.following === user2.following && <span className="follow-number-same">{user2.following}</span>}
                                 </p>
                             </div>
                         </Col>
