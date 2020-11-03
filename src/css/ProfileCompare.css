@@ -44,7 +44,7 @@ border-radius: 10px;
     font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
-.follow-box{
+.profile-box{
     background-color: transparent;
     border: 1px solid #9a9b9c;
     border-radius: 10px;
@@ -62,19 +62,19 @@ border-radius: 10px;
     height: 500px;
 }
 
-.follow-number-same{
+.number-same{
     color: orange;
     font-size: 20px;
     font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
-.follow-number-greater{
+.number-greater{
     color: green;
     font-size: 20px;
     font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
-.follow-number-lower{
+.number-lower{
     color: red;
     font-size: 20px;
     font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
@@ -84,4 +84,68 @@ border-radius: 10px;
     margin-top: 10px;
     text-align: center;
     color: #9a9b9c;
+}
+
+
+::placeholder{
+    color:  #9a9b9c !important;
+}
+
+.input-fields {
+    background-color: #282c34 !important; 
+    color: white !important;
+    font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    border: 1px solid  #9a9b9c !important;
+}
+
+.header-title {
+    color: #9a9b9c;
+    font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.label{
+    color: #9a9b9c;
+    font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    .header-title {
+        color: #9a9b9c;
+        font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+        padding-left: 15px;
+        padding-top: 10px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .Card {
+        text-align: center !important;
+        margin-top: 25px;
+        height: 620px;
+    }
+
+    .profile-image{
+        border-radius: 50%;
+        height: 150px;
+        margin-top: 20px;
+        margin-left: 0px;
+        width: auto;
+    }
+
+    .profile-header{
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .profile-follow{
+        text-align: center;
+        margin-top: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        color: #9a9b9c;
+        font-family: Consolas, "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    }
+
 }
